@@ -1,0 +1,37 @@
+{
+  "name": "tvmovies",
+  "version": "1.0.0",
+  "description": "Tv movies ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustabbas/TvMovies.git"
+  },
+  "author": "mustafa,Dico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mustabbas/TvMovies/issues"
+  },
+  "homepage": "https://github.com/mustabbas/TvMovies#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^6.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "hint": "^6.1.4",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.3.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  }
+}
