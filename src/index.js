@@ -1,3 +1,46 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './styles.css';
+import TvMaze from './TvMaze.js';
+
+const tvMaze = new TvMaze();
+const main = document.querySelector('#main');
+const modal = document.querySelector('#modal');
+
+window.onload = () => {
+  [...new Array(100)].forEach((item, i) => {
+    item = '';
+    main.insertAdjacentHTML(
+      'beforeend',
+      `<button id=btn-${
+        i + 1
+      } type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episode=${i}>
+      Comments for episode ${i + 1}
+      </button>`,
+    );
+  });
+
+  modal.addEventListener('show.bs.modal', (event) => {
+    const button = event.relatedTarget;
+    const episode = button.getAttribute('data-bs-episode');
+    const modalBody = modal.querySelector('.modal-body');
+    tvMaze.getEpisode(episode).then((episode) => {
+      modalBody.innerHTML = `<div class="row g-0 justify-content-center text-center">
+      <div class="justify-content-end mb-2">
+      <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="col-sm-11 col-lg-9 col-xl-6 mb-2">
+      <img class="img-fluid" src="${episode.image.original}" alt="${episode.name}"></img>
+      </div>
+      <h2 class="mb-0 display-6">${episode.name}</h2>
+      <div class="row row-cols-2 gy-1 mb-2 fw-bold">
+      <span>S0${episode.season}E0${episode.number}</span>
+      <span>Release: ${episode.airdate}</span>
+      <span></span>
+      <span>${episode.runtime} minutes</span>
+      </div>
+      ${episode.summary}
+      </div>`;
+    });
+  });
+};
