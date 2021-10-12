@@ -10,8 +10,8 @@ function createShow(data) {
             <div class="d-flex flex-row justify-content-between">
             <h5 class="card-title">${element.name}</h5>
             <div class="d-flex flex-column">
-              <i class="far fa-heart"></i>
-              <span><span id=${element.id}></span> likes</span>
+              <i id = "like${element.id}" class="far fa-heart"></i>
+              <span><span id= "span${element.id}"></span> likes</span>
             </div>
             </div>
             <div class="d-flex flex-column justify-content-between">
@@ -28,7 +28,7 @@ function createShow(data) {
 
 function createLike(data) {
   data.forEach((element) => {
-    document.getElementById(element.item_id).innerText = element.likes;
+    document.getElementById(`span${element.item_id}`).innerText = element.likes;
   });
 }
 
@@ -48,12 +48,18 @@ async function getLike() {
     });
 }
 
-// async function AddLike() {
-//   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/')
-//     .then((response) => response.json())
-//     .then((data) => {
-//       createLike(data);
-//     });
-// }
+async function AddLike(item_id) {
+  const data = { item_id };
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((response) => response.json())
+    .then(() => {
+     
+    });
+}
 
-export { getData, getLike };
+export { getData, getLike, AddLike };
