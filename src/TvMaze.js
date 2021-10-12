@@ -9,8 +9,8 @@ export default class TvMaze {
     return response.json();
   };
 
-  getEpisode = async (index) => {
+  getEpisode = async (id) => {
     const episodes = await this.getEpisodes();
-    return episodes[index];
+    return episodes.find((episode) => episode.id === Number(id));
   };
 }

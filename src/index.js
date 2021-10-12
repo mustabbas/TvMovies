@@ -26,9 +26,9 @@ window.onload = () => {
 
   modal.addEventListener('show.bs.modal', (event) => {
     const button = event.relatedTarget;
-    const episode = button.getAttribute('data-bs-episode');
+    const episodeId = button.getAttribute('data-bs-episodeId');
     const modalBody = modal.querySelector('.modal-body');
-    tvMaze.getEpisode(episode).then((episode) => {
+    tvMaze.getEpisode(episodeId).then((episode) => {
       modalBody.innerHTML = `<div class="row g-0 justify-content-center text-center">
       <div class="justify-content-end mb-2">
       <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
