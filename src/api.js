@@ -15,7 +15,7 @@ function createShow(data) {
             </div>
             </div>
             <div class="d-flex flex-column justify-content-between">
-            <a href="#" class="btn btn-outline-dark m-3">comments</a>
+            <button class="btn btn-outline-dark m-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episodeId="${element.id}">comments</button>
             <a href="#" class="btn btn-outline-dark m-2">Reservration</a>
           </div>
           </div>
@@ -41,7 +41,9 @@ async function getData() {
 }
 
 async function getLike() {
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/')
+  await fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/',
+  )
     .then((response) => response.json())
     .then((data) => {
       createLike(data);
