@@ -48,18 +48,18 @@ async function getLike() {
     });
 }
 
-async function AddLike(item_id) {
-  const data = { item_id };
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  }).then((response) => response.json())
-    .then(() => {
-     
-    });
-}
+// async function AddLike(item_id) {
+//   const data = { item_id };
+//   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   }).then((response) => response.json())
+//     .then(() => {
 
-export { getData, getLike, AddLike };
+//     });
+// }
+
+export { getData, getLike };
