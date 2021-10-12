@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { getData, getLike } from './api.js';
 import './styles.css';
 import TvMaze from './TvMaze.js';
 
@@ -8,17 +9,20 @@ const main = document.querySelector('#main');
 const modal = document.querySelector('#modal');
 
 window.onload = () => {
-  [...new Array(100)].forEach((item, i) => {
-    item = '';
-    main.insertAdjacentHTML(
-      'beforeend',
-      `<button id=btn-${
-        i + 1
-      } type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episode=${i}>
-      Comments for episode ${i + 1}
-      </button>`,
-    );
-  });
+  getData();
+  getLike();
+
+  // [...new Array(100)].forEach((item, i) => {
+  //   item = '';
+  //   main.insertAdjacentHTML(
+  //     'beforeend',
+  //     `<button id=btn-${
+  //       i + 1
+  //     } type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episode=${i}>
+  //     Comments for episode ${i + 1}
+  //     </button>`,
+  //   );
+  // });
 
   modal.addEventListener('show.bs.modal', (event) => {
     const button = event.relatedTarget;
