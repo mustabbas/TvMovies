@@ -15,7 +15,7 @@ function createShow(data) {
             </div>
             </div>
             <div class="d-flex flex-column justify-content-between">
-            <button class="btn btn-outline-dark m-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episode="${element.id}">comments</button>
+            <button class="btn btn-outline-dark m-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episodeId="${element.id}">comments</button>
             <a href="#" class="btn btn-outline-dark m-2">Reservration</a>
           </div>
           </div>
