@@ -64,13 +64,13 @@ export default class ModalDom {
   };
 
   static insertComments = (parentContainer, comments) => {
-    length = comments.length || 0;
+    const numberOfComments = this.getNumberOfComments(comments);
     const commentSection = parentContainer.querySelector('#comment-section');
     commentSection.innerHTML = `<div class="row justify-content-center mb-3">
-        <h3 class="text-center">Comments (${length})</h3>
+        <h3 class="text-center">Comments (${numberOfComments})</h3>
         <div id="comment-list" class="col-sm-11 col-lg-9 col-xl-6"></div>
         </div>`;
-    if (length > 0) {
+    if (numberOfComments > 0) {
       const commentList = commentSection.querySelector('#comment-list');
       comments.forEach((comment) => {
         const date = new Date(comment.creation_date);
@@ -89,5 +89,9 @@ export default class ModalDom {
   static clearComments = (container) => {
     container.querySelector('#comment-section').innerHTML = '';
     return this;
+  };
+
+  static getNumberOfComments = (comments) => {
+    return comments.length || 0;
   };
 }
