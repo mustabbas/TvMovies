@@ -1,4 +1,4 @@
-import Involvement from './involvement.js';
+import Involvement from './Involvement.js';
 
 export default class ModalDom {
   static insertDetailsSection = (container, episode) => {
@@ -59,7 +59,7 @@ export default class ModalDom {
   };
 
   static insertCommentSection = (container) => {
-    container.firstChild.insertAdjacentHTML('afterEnd', `<section id="comment-section"></section>`);
+    container.firstChild.insertAdjacentHTML('afterEnd', '<section id="comment-section"></section>');
     return this;
   };
 
@@ -91,7 +91,5 @@ export default class ModalDom {
     return this;
   };
 
-  static getNumberOfComments = (comments) => {
-    return comments.length || 0;
-  };
+  static getNumberOfComments = (comments) => comments.length || 0;
 }

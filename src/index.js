@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { getData, getLike } from './api.js';
-import Involvement from './involvement.js';
+import Involvement from './Involvement.js';
 import ModalDom from './ModalDom.js';
 import './styles.css';
 import TvMaze from './TvMaze.js';
@@ -19,9 +19,9 @@ window.onload = () => {
     ModalDom.insertFormSection(modalBody, episodeId);
     TvMaze.getEpisode(episodeId).then((episode) => {
       ModalDom.insertDetailsSection(modalBody, episode);
-      Involvement.getComments(episodeId).then((comments) =>
-        ModalDom.insertCommentSection(modalBody).insertComments(modalBody, comments),
-      );
+      Involvement.getComments(episodeId).then((comments) => {
+        ModalDom.insertCommentSection(modalBody).insertComments(modalBody, comments);
+      });
     });
   });
 };
