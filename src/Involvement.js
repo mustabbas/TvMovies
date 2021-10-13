@@ -1,15 +1,15 @@
 export default class Involvement {
-  #ROOT_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
+  static #ROOT_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi';
 
-  #APP_ID = 'YMwyLkvjjcipUxm8wYhP';
+  static #APP_ID = 'YMwyLkvjjcipUxm8wYhP';
 
-  getComments = async (id) => {
+  static getComments = async (id) => {
     const url = `${this.#ROOT_URL}/apps/${this.#APP_ID}/comments?item_id=${id}`;
     const response = await fetch(url);
     return response.json();
   };
 
-  postComment = async (data) => {
+  static postComment = async (data) => {
     const url = `${this.#ROOT_URL}/apps/${this.#APP_ID}/comments`;
     const response = await fetch(url, {
       method: 'POST',
@@ -18,6 +18,6 @@ export default class Involvement {
       },
       body: JSON.stringify(data),
     });
-    return response.json();
+    return response.ok;
   };
 }
