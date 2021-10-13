@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { getData, getLike } from './api.js';
+import {
+  getData, getLike, AddLike, fetchCount,
+} from './api.js';
 import './styles.css';
 import TvMaze from './TvMaze.js';
 
@@ -8,9 +10,21 @@ const tvMaze = new TvMaze();
 const modal = document.querySelector('#modal');
 
 window.onload = () => {
-  getData();
+  getData().then(() => {
+    const likeBtn = document.querySelectorAll('.like');
+    likeBtn.forEach((element) => {
+      element.addEventListener('click', () => {
+        const id = element.id.replace('like', '');
+        AddLike(id).then(() => {
+          getLike();
+        });
+      });
+    });
+  });
+  fetchCount().then((data) => {
+    document.getElementById('showCounter').innerText = `TV Show(${data})`;
+  });
   getLike();
-
   modal.addEventListener('show.bs.modal', (event) => {
     const button = event.relatedTarget;
     const episodeId = button.getAttribute('data-bs-episodeId');

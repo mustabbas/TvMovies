@@ -9,8 +9,8 @@ function createShow(data) {
           <div class="card-body">
             <div class="d-flex flex-row justify-content-between">
             <h5 class="card-title">${element.name}</h5>
-            <div class="d-flex flex-column">
-              <i id = "like${element.id}" class="far fa-heart"></i>
+            <div class="d-flex flex-column align-items-center">
+              <a href = "#" id = "like${element.id}" class = "like"><i class="far fa-heart"></i></a>
               <span><span id= "span${element.id}"></span> likes</span>
             </div>
             </div>
@@ -50,18 +50,29 @@ async function getLike() {
     });
 }
 
-// async function AddLike(item_id) {
-//   const data = { item_id };
-//   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   }).then((response) => response.json())
-//     .then(() => {
+function getCount(eposide) {
+  return eposide.length;
+}
 
-//     });
-// }
+async function fetchCount() {
+  return fetch(
+    'https://api.tvmaze.com/shows/2/episodes',
+  )
+    .then((response) => response.json())
+    .then((data) => getCount(data));
+}
 
-export { getData, getLike };
+async function AddLike(itemId) {
+  const data = { item_id: itemId };
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((response) => response);
+}
+
+export {
+  getData, getLike, AddLike, getCount, fetchCount,
+};

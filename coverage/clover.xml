@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1634159446964" clover="3.2.0">
+  <project timestamp="1634159446964" name="All files">
+    <metrics statements="21" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="16" coveredmethods="1" elements="39" coveredelements="2" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
+    <file name="api.js" path="/Users/sarathk/TvMovies/src/api.js">
+      <metrics statements="21" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="16" coveredmethods="1"/>
+      <line num="2" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="58" count="0" type="stmt"/>
+      <line num="61" count="0" type="stmt"/>
+      <line num="62" count="0" type="stmt"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="67" count="0" type="stmt"/>
+      <line num="73" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
