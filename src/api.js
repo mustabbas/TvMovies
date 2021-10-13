@@ -3,14 +3,14 @@ function createShow(data) {
     data.forEach((element) => {
       const row = document.querySelector('.row');
       const card = document.createElement('div');
-      card.innerHTML = `<div class="p-3">
+      card.innerHTML = `<div id = "card${element.id}" class="p-3">
         <div class="card border">
           <img src="${element.image.medium}" class="card-img-top" alt="..."></img>
           <div class="card-body">
             <div class="d-flex flex-row justify-content-between">
             <h5 class="card-title">${element.name}</h5>
             <div class="d-flex flex-column align-items-center">
-              <a href = "#" id = "like${element.id}" class = "like"><i class="far fa-heart"></i></a>
+              <a href = "#card${element.id}" id = "like${element.id}" class = "like"><i class="far fa-heart"></i></a>
               <span><span id= "span${element.id}"></span> likes</span>
             </div>
             </div>
