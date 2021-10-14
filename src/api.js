@@ -27,16 +27,18 @@ function createShow(data) {
 }
 
 function createLike(data) {
-  data.forEach((element) => {
-    document.getElementById(`span${element.item_id}`).innerText = element.likes;
-  });
+  if (data) {
+    data.forEach((element) => {
+      document.getElementById(`span${element.item_id}`).innerText = element.likes;
+    });
+  }
 }
 
 async function getData() {
   await fetch('https://api.tvmaze.com/shows/2/episodes')
     .then((response) => response.json())
     .then((data) => {
-      createShow(data);
+      createShow(data.slice(0, 10));
     });
 }
 
@@ -46,7 +48,7 @@ async function getLike() {
   )
     .then((response) => response.json())
     .then((data) => {
-      createLike(data);
+      createLike(data.slice(0, 10));
     });
 }
 
