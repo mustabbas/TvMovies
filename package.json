@@ -1,5 +1,8 @@
 {
   "name": "tvmovies",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "description": "Tv movies ",
   "main": "index.js",
