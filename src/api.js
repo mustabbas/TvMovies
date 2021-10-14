@@ -1,4 +1,4 @@
-function createShow(data) {
+const createShow = (data) => {
   if (data) {
     data.forEach((element) => {
       const cardWrapper = document.querySelector('.card-wrapper');
@@ -24,49 +24,43 @@ function createShow(data) {
       cardWrapper.appendChild(card);
     });
   }
-}
+};
 
-function createLike(data) {
+const createLike = (data) => {
   if (data) {
     data.forEach((element) => {
       document.getElementById(`span${element.item_id}`).innerText = element.likes;
     });
   }
-}
+};
 
-async function getData() {
+const getData = async () => {
   await fetch('https://api.tvmaze.com/shows/2/episodes')
     .then((response) => response.json())
     .then((data) => {
       createShow(data);
     });
-}
+};
 
-async function getLike() {
+const getLike = async () => {
   await fetch(
-    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/',
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Oy4ygJ5mBEBnH4ExavgC/likes/',
   )
     .then((response) => response.json())
     .then((data) => {
       createLike(data);
     });
-}
+};
 
-function getCount(episodes) {
-  return episodes.length;
-}
+const fetchCount = async () => fetch(
+  'https://api.tvmaze.com/shows/2/episodes',
+)
+  .then((response) => response.json())
+  .then((data) => data.length);
 
-async function fetchCount() {
-  return fetch(
-    'https://api.tvmaze.com/shows/2/episodes',
-  )
-    .then((response) => response.json())
-    .then((data) => getCount(data));
-}
-
-async function AddLike(itemId) {
+const AddLike = async (itemId) => {
   const data = { item_id: itemId };
-  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Oy4ygJ5mBEBnH4ExavgC/likes/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -75,8 +69,8 @@ async function AddLike(itemId) {
   }).then((response) => response).then(() => {
     getLike();
   });
-}
+};
 
 export {
-  getData, getLike, AddLike, getCount, fetchCount,
+  getData, getLike, AddLike, fetchCount,
 };
