@@ -61,7 +61,7 @@ async function fetchCount() {
     'https://api.tvmaze.com/shows/2/episodes',
   )
     .then((response) => response.json())
-    .then((data) => getCount(data));
+    .then((data) => getCount(data.slice(0, 10)));
 }
 
 async function AddLike(itemId) {
