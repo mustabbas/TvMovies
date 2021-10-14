@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { AddLike, fetchCount, getData, getLike } from './api.js';
+import {
+  AddLike, fetchCount, getData, getLike,
+} from './api.js';
 import Involvement from './Involvement.js';
 import ModalDom from './ModalDom.js';
 import './styles.css';
