@@ -38,7 +38,7 @@ async function getData() {
   await fetch('https://api.tvmaze.com/shows/2/episodes')
     .then((response) => response.json())
     .then((data) => {
-      createShow(data.slice(0, 10));
+      createShow(data);
     });
 }
 
@@ -48,7 +48,7 @@ async function getLike() {
   )
     .then((response) => response.json())
     .then((data) => {
-      createLike(data.slice(0, 10));
+      createLike(data);
     });
 }
 
@@ -61,7 +61,7 @@ async function fetchCount() {
     'https://api.tvmaze.com/shows/2/episodes',
   )
     .then((response) => response.json())
-    .then((data) => getCount(data.slice(0, 10)));
+    .then((data) => getCount(data));
 }
 
 async function AddLike(itemId) {
