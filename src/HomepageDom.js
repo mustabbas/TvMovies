@@ -61,7 +61,5 @@ export default class HomepageDom {
     });
   };
 
-  static getEpisodesCount = (episodes) => {
-    return episodes.length;
-  };
+  static getEpisodesCount = (episodes) => episodes.length;
 }
