@@ -1,27 +1,27 @@
 function createShow(data) {
-  if (data !== null) {
+  if (data) {
     data.forEach((element) => {
-      const row = document.querySelector('.row');
+      const cardWrapper = document.querySelector('.card-wrapper');
       const card = document.createElement('div');
-      card.innerHTML = `<div class="p-3">
+      card.innerHTML = `<div id = "card${element.id}" class="p-3">
         <div class="card border">
-          <img src="${element.image.medium}" class="card-img-top" alt="..."></img>
+          <img src="${element.image.medium}" class="card-img-top" alt="${element.name}"></img>
           <div class="card-body">
             <div class="d-flex flex-row justify-content-between">
             <h5 class="card-title">${element.name}</h5>
-            <div class="d-flex flex-column">
-              <i id = "like${element.id}" class="far fa-heart"></i>
+            <div class="d-flex flex-column align-items-center">
+              <a href = "#card${element.id}" id = "like${element.id}" class = "like"><i class="far fa-heart"></i></a>
               <span><span id= "span${element.id}"></span> likes</span>
             </div>
             </div>
             <div class="d-flex flex-column justify-content-between">
-            <button class="btn btn-outline-dark m-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episodeId="${element.id}">comments</button>
-            <a href="#" class="btn btn-outline-dark m-2">Reservration</a>
+            <button class="btn btn-outline-dark m-3" data-bs-toggle="modal" data-bs-target="#modal" data-bs-episodeId="${element.id}">Comments</button>
+            <a href="#" class="btn btn-outline-dark m-2">Reservation</a>
           </div>
           </div>
         </div>
       </div>`;
-      row.appendChild(card);
+      cardWrapper.appendChild(card);
     });
   }
 }
@@ -50,18 +50,29 @@ async function getLike() {
     });
 }
 
-// async function AddLike(item_id) {
-//   const data = { item_id };
-//   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   }).then((response) => response.json())
-//     .then(() => {
+function getCount(episodes) {
+  return episodes.length;
+}
 
-//     });
-// }
+async function fetchCount() {
+  return fetch(
+    'https://api.tvmaze.com/shows/2/episodes',
+  )
+    .then((response) => response.json())
+    .then((data) => getCount(data));
+}
 
-export { getData, getLike };
+async function AddLike(itemId) {
+  const data = { item_id: itemId };
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/YMwyLkvjjcipUxm8wYhP/likes/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then((response) => response);
+}
+
+export {
+  getData, getLike, AddLike, getCount, fetchCount,
+};
