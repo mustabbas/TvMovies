@@ -1,21 +1,21 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # TV show 
-> This project for list the TV show.
+> This project for list the TV show. We build our own web application based on 2 external APIs, TVMAZE API and Microverse's Involvement API. We build the project using JavaScript, Bootstrap and Webpack.
 
 ![screenshot](./app_screenshot.png)
 
 
 ## Built With
 
--  HTML,CSS,JavaScript
+-  HTML, CSS, JavaScript
 -  Visual Studio Code: A source code editor
--  git: A tool for managing source code
--  webpack
+-  Git: A tool for managing source code
+-  Webpack
 
 ## Live Demo
 
-[Live Demo Link](https://mustabbas.github.io/TvMovies/)
+[Live Demo Link](https://mustabbas.github.io/TvMovies/dist)
 
 
 ## Getting Started
@@ -42,6 +42,12 @@ Follow the steps described before.
 
 - GitHub: [@githubhandle](https://github.com/mustabbas)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mustafa-abbas-7555ba10a)
+
+👤 **Dico Diaz Dussan**
+
+- GitHub: [@dicodiaz](https://github.com/dicodiaz)
+- Twitter: [@DicoDiaz1](https://twitter.com/DicoDiaz1)
+- LinkedIn: [Dico Diaz Dussan](https://www.linkedin.com/in/dico-diaz-dussan-476106a6/)
 
 
 ## 🤝 Contributing
