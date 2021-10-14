@@ -70,7 +70,9 @@ async function AddLike(itemId) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then((response) => response);
+  }).then((response) => response).then(() => {
+    getLike();
+  });
 }
 
 export {
