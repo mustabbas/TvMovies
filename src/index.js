@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import {
-  AddLike, fetchCount, getData, getLike,
-} from './api.js';
+import HomepageDom from './HomepageDom.js';
 import Involvement from './Involvement.js';
 import ModalDom from './ModalDom.js';
 import './styles.css';
@@ -12,21 +10,12 @@ const modal = document.querySelector('#modal');
 const modalBody = modal.querySelector('.modal-body');
 
 window.onload = () => {
-  getData().then(() => {
-    const likeBtn = document.querySelectorAll('.like');
-    likeBtn.forEach((element) => {
-      element.addEventListener('click', () => {
-        const id = element.id.replace('like', '');
-        AddLike(id).then(() => {
-          getLike();
-        });
-      });
+  TvMaze.getEpisodes().then((episodes) => {
+    HomepageDom.insertEpisodes(episodes);
+    Involvement.getLikes().then((likes) => {
+      HomepageDom.insertLikesCount(likes);
     });
   });
-  fetchCount().then((data) => {
-    document.getElementById('showCounter').innerText = `TV Show(${data})`;
-  });
-  getLike();
   modal.addEventListener('show.bs.modal', (event) => {
     const button = event.relatedTarget;
     const episodeId = Number(button.getAttribute('data-bs-episodeId'));
