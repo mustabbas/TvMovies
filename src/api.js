@@ -1,11 +1,11 @@
 function createShow(data) {
-  if (data !== null) {
+  if (data) {
     data.forEach((element) => {
-      const row = document.querySelector('.row');
+      const cardWrapper = document.querySelector('.card-wrapper');
       const card = document.createElement('div');
       card.innerHTML = `<div id = "card${element.id}" class="p-3">
         <div class="card border">
-          <img src="${element.image.medium}" class="card-img-top" alt="..."></img>
+          <img src="${element.image.medium}" class="card-img-top" alt="${element.name}"></img>
           <div class="card-body">
             <div class="d-flex flex-row justify-content-between">
             <h5 class="card-title">${element.name}</h5>
@@ -21,7 +21,7 @@ function createShow(data) {
           </div>
         </div>
       </div>`;
-      row.appendChild(card);
+      cardWrapper.appendChild(card);
     });
   }
 }
@@ -50,8 +50,8 @@ async function getLike() {
     });
 }
 
-function getCount(eposide) {
-  return eposide.length;
+function getCount(episodes) {
+  return episodes.length;
 }
 
 async function fetchCount() {
