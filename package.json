@@ -7,9 +7,11 @@
   "description": "Tv movies ",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
+    "watch": "jest --watch --coverage",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
