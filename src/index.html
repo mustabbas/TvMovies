@@ -4,37 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>TV Shows Finder</title>
     <script src="https://kit.fontawesome.com/8b3e10c73b.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="min-vh-100 d-flex flex-column">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="fixed-top navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">TV & Movies</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" id="showCounter" href="#">
-                Person of Interest(<span id="episodes-count"></span> episodes)
-              </a>
-            </div>
-          </div>
+          <a class="navbar-brand">TV Shows Finder</a>
+          <form id="form" class="d-flex">
+            <input id="search-bar" class="form-control me-2" type="text" placeholder="Search" />
+            <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
       </nav>
     </header>
-    <main>
-      <div class="container">
+    <main class="flex-grow-1 pt-5">
+      <div class="container-md pt-5 pb-3">
+        <h1 id="welcome-msg" class="display-1 text-center text-white pt-5">
+          Hello! Welcome to TV Shows Finder. Please look for your TV show in the search bar.
+        </h1>
         <div class="card-wrapper row row-cols-1 row-cols-md-2 row-cols-lg-3"></div>
       </div>
       <div class="modal fade" id="modal" tabindex="-1" aria-hidden="true">
