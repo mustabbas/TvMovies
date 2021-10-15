@@ -20,15 +20,21 @@ window.onload = () => {
   searchBtn.addEventListener('click', () => {
     if (searchBar.value !== '') {
       TvMaze.singleSearch(searchBar.value).then((show) => {
-        TvMaze.getEpisodes(show.id).then((episodes) => {
-          HomepageDom.insertEpisodes(episodes, show.id);
-          Involvement.getLikes().then((likes) => {
-            HomepageDom.insertLikesCount(likes);
+        if (show) {
+          TvMaze.getEpisodes(show.id).then((episodes) => {
+            HomepageDom.insertEpisodes(episodes, show.id);
+            Involvement.getLikes().then((likes) => {
+              HomepageDom.insertLikesCount(likes);
+            });
           });
-        });
+          welcomeMsg.classList.add('d-none');
+        } else {
+          document.querySelector('.card-wrapper').innerHTML = '';
+          welcomeMsg.classList.remove('d-none');
+          welcomeMsg.innerText = `No show found with the name "${searchBar.value}". Please try again.`;
+        }
+        searchBar.value = '';
       });
-      welcomeMsg.classList.add('d-none');
-      searchBar.value = '';
     }
   });
   searchBar.addEventListener('keyup', (event) => {

@@ -1,22 +1,21 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# TV show 
-> This project for list the TV show. We build our own web application based on 2 external APIs, TVMAZE API and Microverse's Involvement API. We build the project using JavaScript, Bootstrap and Webpack.
+# TV Show Finder
+
+> TV Show Finder is a quick tool to look for any TV show. It's build based on 2 external APIs, TvMaze API and Microverse's Involvement API, using JavaScript, Bootstrap and Webpack.
 
 ![screenshot](./app_screenshot.png)
 
-
 ## Built With
 
--  HTML, CSS, JavaScript
--  Visual Studio Code: A source code editor
--  Git: A tool for managing source code
--  Webpack
+- HTML, CSS, JavaScript
+- Visual Studio Code: A source code editor
+- Git: A tool for managing source code
+- Webpack
 
 ## Live Demo
 
 [Live Demo Link](https://mustabbas.github.io/TvMovies/dist)
-
 
 ## Getting Started
 
@@ -29,12 +28,13 @@ To install dependencies use Run npm install
 To start your project use npm run build
 
 ### Prerequisites
+
 npm.
 A web browser.
 
 ### Setup
-Follow the steps described before.
 
+Follow the steps described before.
 
 ## Authors
 
@@ -49,7 +49,6 @@ Follow the steps described before.
 - Twitter: [@DicoDiaz1](https://twitter.com/DicoDiaz1)
 - LinkedIn: [Dico Diaz Dussan](https://www.linkedin.com/in/dico-diaz-dussan-476106a6/)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -59,7 +58,6 @@ Feel free to check the [issues page](https://github.com/mustabbas/TvMovies/issue
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
 
 ## 📝 License
 
